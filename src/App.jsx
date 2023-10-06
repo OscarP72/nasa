@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Figure from "./Components/Figure/Figure";
+import  logo from "./assets/logo.png";
+import axios from "axios";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const today = new Date(Date.now()).toISOString().slice(0, 10);
+  const [apod, setApod] = useState({});
+  const [date, setDate] = useState(today);
+  const NASA_URL = "https://api.nasa.gov/";
+  const NASA_API_KEY = "VMHZZhjILx0QSRitb7NsGuz7LVbJC5e9XX64Tlfa";
 
+  useEffect(() => {
+    const getApod = async () => {
+      const data = await axios.get(
+        `${NASA_URL}planetary/apod?date=${date}&api_key=${NASA_API_KEY}`
+      );
+      setApod(data.data);
+    };
+    getApod();
+  }, [date]);
+  const handleInput = (ev) => {
+    setDate(ev.target.value.toLocaleString());
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <h2 className="litle">
+        NASA API <img src={logo} className="logo" alt="NASA LOGO" />
+      </h2>
+      <h1>Foto Astronómica del día</h1>
+      <input type="date" id="photo-date" onChange={handleInput} />
+      {date > today ? (
+        <h2>Elija una fecha anterior</h2>
+      ) : (
+        <Figure data={apod} />
+      )}
+      <div className="standard-dialog center">
+        <h1 className="dialog-text">
+          OPA - 2023 -
+          <a href="https://api.nasa.gov/">https://api.nasa.gov/</a>
+        </h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
