@@ -20,15 +20,16 @@ const App = () => {
     };
     getApod();
   }, [date]);
+  
   const handleInput = (ev) => {
     setDate(ev.target.value.toLocaleString());
   };
   return (
     <div className="App">
-      <h2 className="litle">
-        NASA API <img src={logo} className="logo" alt="NASA LOGO" />
-      </h2>
-      <h1>Foto Astronómica del día</h1>
+      <h1 className="litle">
+        NASA  <img src={logo} className="logo" alt="NASA LOGO" />
+      </h1>
+      <h2>Foto Astronómica del día</h2>
       <input type="date" id="photo-date" onChange={handleInput} />
       {date > today ? (
         <h2>Elija una fecha anterior</h2>
@@ -36,10 +37,10 @@ const App = () => {
         <Figure data={apod} />
       )}
       <div className="standard-dialog center">
-        <h1 className="dialog-text">
+        <h4 className="dialog-text">
           OPA - 2023 -
           <a href="https://api.nasa.gov/">https://api.nasa.gov/</a>
-        </h1>
+        </h4>
       </div>
     </div>
   );

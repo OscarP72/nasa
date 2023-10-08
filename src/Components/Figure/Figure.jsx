@@ -4,9 +4,9 @@ const Figure =({data}) => {
             <img src={data.url} alt={data.title}/>
             <div className="window">
                 <div className="title-bar">
-                    <button aria-label="Close" className="close"></button>
+                    <button aria-label="Close" className="close">Cerrar</button>
                     <h1 className="title">{data.litle}</h1>
-                    <button aria-label="Resize" className="resize"></button>
+                    <button aria-label="Resize" className="resize">Cambiar</button>
                 </div>
                 <div className="details-bar">
                     <span>{data.date}</span>
