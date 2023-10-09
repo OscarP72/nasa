@@ -8,6 +8,7 @@ const App = () => {
   const today = new Date(Date.now()).toISOString().slice(0, 10);
   const [apod, setApod] = useState({});
   const [date, setDate] = useState(today);
+  const isBotonSiguienteDeshabilitado = new Date (date) > new Date();
   const NASA_URL = "https://api.nasa.gov/";
   const NASA_API_KEY = "VMHZZhjILx0QSRitb7NsGuz7LVbJC5e9XX64Tlfa";
 
@@ -22,8 +23,16 @@ const App = () => {
   }, [date]);
   
   const handleInput = (ev) => {
-    setDate(ev.target.value.toLocaleString());
+    setDate(ev.target.value);
   };
+  const cambiarFecha = (incremento) => {
+    const currentDate = new Date(date);
+    currentDate.setDate(currentDate.getDate() + incremento);
+    const newDate = currentDate.toISOString().slice(0, 10);
+    setDate(newDate);
+  };
+
+
   return (
     <div className="App">
       <h1 className="litle">
@@ -34,7 +43,7 @@ const App = () => {
       {date > today ? (
         <h2>Elija una fecha anterior</h2>
       ) : (
-        <Figure data={apod} />
+        <Figure data={apod} fecha={date} onFechaChange={cambiarFecha} isBotonSiguienteDeshabilitado={isBotonSiguienteDeshabilitado} />
       )}
       <div className="standard-dialog center">
         <h4 className="dialog-text">

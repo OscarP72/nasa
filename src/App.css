@@ -16,13 +16,13 @@ h2,
 h3,
 p,
 a {
-  color: #000;
+  color: #fcfafa;
 }
 .details-bar {
   color: #000;
 }
 .window-pane {
-  color: #000;
+  color: #f9f6f6;
 }
 .standard-dialog.center a {
   color: black;
@@ -60,8 +60,7 @@ a {
   background-color: transparent;
 }
 
-/* Cambiar el color del borde al enfocar el input */
+
 #photo-date:focus {
   border-color: #61dafb;
 }
-
