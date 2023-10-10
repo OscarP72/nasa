@@ -6,10 +6,19 @@
   text-align: center;
 }
 body {
-  background-image: url("assets/constellations.jpg");
+  background-image: url("assets/ZMXZVANE2VEHNOUHSZTQMZTASI.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  animation: movimiento 10s infinite linear alternate;
+}
+@keyframes movimiento {
+  from{
+    background-position: bottom left;
+  }to {
+    background-position: top right;
+  }
+  
 }
 h1,
 h2,
@@ -19,24 +28,34 @@ a {
   color: #fcfafa;
 }
 .details-bar {
-  color: #000;
+  color: #fdfafa;
 }
 .window-pane {
   color: #f9f6f6;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 80%;
+  
 }
 .standard-dialog.center a {
-  color: black;
+  color: rgb(249, 245, 245);
+  
+  
 }
 .litle {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
   justify-content: flex-start;
+  gap: 40px;
 }
 
 .litle .logo {
-  height: 5em;
-  margin-left: 0.5rem;
+  height: 6em;
+  margin-left: 1rem;
 }
 
 .figure-image {
@@ -49,18 +68,32 @@ a {
   margin-right: 0.5rem;
 }
 
+
 #photo-date {
   padding: 10px; 
   font-size: 16px; 
-  border: 2px solid #000; 
+  border: 2px solid #fbfbfb; 
   border-radius: 5px; 
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 0 5px #000; 
   transition: border-color 0.3s ease; 
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.369);
+
+}
+.title-bar {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 40px;
+  
+}
+.dialog-text {
+  color: #fbfbfb;
 }
 
 
 #photo-date:focus {
   border-color: #61dafb;
 }
+

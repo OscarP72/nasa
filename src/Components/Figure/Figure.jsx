@@ -1,14 +1,21 @@
 import "./figure.css";
 
-const Figure = ({ data , fecha, onFechaChange, isBotonSiguienteDeshabilitado }) => {
-    const isFechaMayorQueActual = new Date(fecha) > new Date ();
-    
-  
+const Figure = ({
+  data,
+  fecha,
+  onFechaChange,
+  isBotonSiguienteDeshabilitado,
+}) => {
+  const isFechaMayorQueActual = new Date(fecha) > new Date();
+
+
   return (
     <figure>
+      <h1 className="title">{data.title}</h1>
       <img src={data.url} alt={data.title} />
       <div className="window">
         <div className="title-bar">
+        
           <button
             aria-label="Close"
             className="close"
@@ -16,11 +23,12 @@ const Figure = ({ data , fecha, onFechaChange, isBotonSiguienteDeshabilitado }) 
           >
             Anterior
           </button>
-          <h1 className="title">{data.litle}</h1>
+          
           <button
             aria-label="Resize"
             className="resize"
-            onClick={() => onFechaChange(1)} disabled={isFechaMayorQueActual || isBotonSiguienteDeshabilitado}
+            onClick={() => onFechaChange(1)}
+            disabled={isBotonSiguienteDeshabilitado}
           >
             Siguiente
           </button>
