@@ -6,7 +6,6 @@ const Figure = ({
   onFechaChange,
   isBotonSiguienteDeshabilitado,
 }) => {
-  const isFechaMayorQueActual = new Date(fecha) > new Date();
 
 
   return (

@@ -25,6 +25,7 @@ const App = () => {
   }, [date]);
   
   const handleInput = (ev) => {
+    const selectedDate = ev.target.value
     setDate(ev.target.value);
     
   };
@@ -42,7 +43,7 @@ const App = () => {
         <img src={logo} className="logo" alt="NASA LOGO" />
       </h1>
       <h2>Foto Astronómica del día</h2>
-      <input type="date" id="photo-date" onChange={handleInput}  />
+      <input type="date" id="photo-date" onChange={handleInput} />
       {date > today ? (
         <h2>Elija una fecha anterior</h2>
       ) : (
