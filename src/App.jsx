@@ -51,7 +51,7 @@ const App = () => {
       )}
       <div className="standard-dialog center">
         <h4 className="dialog-text">
-          OPA - 2023 -
+          OPA ©- 2023 -
           <a href="https://api.nasa.gov/">Nasa</a>
         </h4>
       </div>
